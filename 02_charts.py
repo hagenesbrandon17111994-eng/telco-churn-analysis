@@ -93,7 +93,7 @@ inet["n_services"] = (inet[svc] == "Yes").sum(axis=1)
 s = (inet.groupby("n_services")["churn"].mean() * 100).round(1)
 bar_chart(
     "3_churn_by_services.png",
-    "Каждая подключённая услуга снижает отток: при шести он почти нулевой",
+    "Чем больше услуг подключено, тем реже клиент уходит: при шести отток всего 5%",
     "Доля ушедших клиентов по числу доп. услуг, % (только клиенты с интернетом)",
     [str(i) for i in s.index], s.values, highlight=[0],
 )
